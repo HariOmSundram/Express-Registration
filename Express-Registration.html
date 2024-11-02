@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Express Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+        }
+        .form-container {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #ffffff;
+            max-width: 720px;
+            margin: auto;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .g1 {
+            background-color: #d3d3d3;
+            padding: 10px;
+            font-size: 0.9em;
+            font-weight: bold;
+            color: #333;
+            display: flex;
+            gap: 175px;
+        }
+        table {
+            margin-top: 10px;
+            width: 100%;
+        }
+        td {
+            padding: 5px;
+            vertical-align: top;
+        }
+        #title {
+            width: 50px;
+        }
+        .required-mark {
+            color: red;
+            font-size: 0.8em;
+            margin-top: -10px;
+            display: block;
+        }
+        .address-container {
+            position: relative;
+        }
+        .address-required-mark {
+            position: absolute;
+            font-weight: bold;
+        }
+        .feedback-container {
+            border: 5px solid green;
+            padding: 10px;
+        }
+        .secu {
+            background-color: #d3d3d3;
+            padding: 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+        }
+        input[type="text"],
+        input[type="number"],
+        input[type="password"],
+        textarea,
+        select {
+            background-color: #d7edf4;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+        @media (max-width: 600px) {
+            .g1 {
+                flex-direction: column;
+                gap: 10px;
+            }
+            table, td {
+                display: block;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <form id="registrationForm">
+            <h2 style="color: red;"><i>Express Registration</i></h2>
+            <p>Please note that all fields that have an asterisk (*) are required to process your registration.</p>
+
+            <div class="g1">
+                <span>Personal Details:</span>
+                <span>Address:</span>
+            </div>
+
+            <table>
+                <tr>
+                    <td><label for="title">Title:</label></td>
+                    <td>
+                        <input type="text" id="title" />
+                        <div>Mr/Mrs/Miss</div>
+                    </td>
+                    <td><label for="address">Address:</label></td>
+                    <td class="address-container">
+                        <input type="text" id="address" />
+                        <span class="address-required-mark">*</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3"></td>
+                    <td>
+                        <input type="text" id="address-2"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="first-name">First Name:</label></td>
+                    <td>
+                        <input type="text" id="first-name" />
+                        <div>*</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="last-name">Last Name:</label></td>
+                    <td>
+                        <input type="text" id="last-name" />
+                        <div>*</div>
+                    </td>
+                    <td><label for="town">Town:</label></td>
+                    <td>
+                        <input type="text" id="town" />
+                        <span class="address-required-mark">*</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="email">Email Address:</label></td>
+                    <td>
+                        <input type="text" id="email" />
+                        <div>*</div>
+                    </td>
+                    <td><label for="state">Country/State:</label></td>
+                    <td><input type="text" id="state"/><span>*</span></td>
+                </tr>
+                <tr>
+                    <td><label for="phone">Telephone:</label></td>
+                    <td>
+                        <input type="number" id="phone" />
+                        <div>*</div>
+                    </td>
+                    <td><label for="country">Country:</label></td>
+                    <td>
+                        <select name="country" style="color: rgb(30, 121, 157);">
+                            <option value="1">United State</option>
+                            <option value="2">India</option>
+                            <option value="3">Andaman & Nicobar</option>
+                            <option value="4">Japan</option>
+                            <option value="5">Russia</option>
+                            <option value="6">Australia</option>
+                            <option value="7">Canada</option>
+                            <option value="8">Israel</option>
+                            <option value="9">Pakistan</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="cell-phone">Cell Number:</label></td>
+                    <td>
+                        <input type="number" id="cell-phone" />
+                    </td>
+                    <td><label for="pstcode">Post Code:</label></td>
+                    <td>
+                        <input type="text" id="pstcode" maxlength="6" />
+                        <span class="address-required-mark">*</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="text-align: center;">
+                        <div style="display: flex; align-items: center;">
+                            <label for="comments">Comments:</label>
+                            <textarea id="comments" rows="4" style="width: 80%;"></textarea>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td colspan="4">
+                        <div class="feedback-container">
+                            <label for="feedback">Feedback:</label>
+                            <input type="text" id="feedback" />
+                            Hear us from?
+                            <span class="checkbox-group">
+                                <input type="checkbox" id="friend" name="source" value="friend">
+                                <label for="friend">Friend</label>
+                                <input type="checkbox" id="site-owner" name="source" value="site-owner">
+                                <label for="site-owner">Site Owner</label>                          
+                                <input type="checkbox" id="search-engine" name="source" value="search-engine">
+                                <label for="search-engine">Search Engine</label>                               
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="secu">Security Details:</td>
+               </tr>
+               <tr>
+                <td><label for="psd">Choose Password:</label></td>
+                <td><input type="password" id="psd"/><span>*</span></td>
+                <td><label>Confirm Password:</label></td>
+                <td><input type="password" id="confirm-psd"/><span>*</span></td>
+               </tr>
+            </table>
+            <div style="text-align: center; margin-top: 20px;">
+                <button type="submit">Register</button>
+            </div>
+        </form>
+    </div>
+    
+    <script>
+        document.getElementById("registrationForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let formData = {
+                title: document.getElementById("title").value,
+                firstName: document.getElementById("first-name").value,
+                lastName: document.getElementById("last-name").value,
+                email: document.getElementById("email").value,
+                phone: document.getElementById("phone").value,
+                cellPhone: document.getElementById("cell-phone").value,
+                address: document.getElementById("address").value,
+                address2: document.getElementById("address-2").value,
+                town: document.getElementById("town").value,
+                state: document.getElementById("state").value,
+                postCode: document.getElementById("pstcode").value,
+                comments: document.getElementById("comments").value,
+                feedback: document.getElementById("feedback").value,
+                password: document.getElementById("psd").value,
+                confirmPassword: document.getElementById("confirm-psd").value,
+                source: Array.from(document.querySelectorAll('input[name="source"]:checked')).map(el => el.value)
+            };
+            localStorage.setItem("formData", JSON.stringify(formData));
+            alert("Data saved in local storage.");
+        });
+    </script>
+</body>
+</html>
